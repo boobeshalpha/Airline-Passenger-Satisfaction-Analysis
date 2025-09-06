@@ -1,89 +1,86 @@
 ✈️ Airline Passenger Satisfaction Analysis
 📌 Project Overview
-
-This project analyzes an airline passenger satisfaction dataset to identify key factors that influence customer satisfaction.
-We perform data cleaning, exploratory data analysis (EDA), and visualization to uncover insights.
+This project analyzes an airline passenger satisfaction dataset to uncover the key factors influencing customer satisfaction. Using data cleaning, exploratory data analysis (EDA), and visualizations, we highlight the service aspects that drive passenger happiness and identify areas for improvement.
 
 📂 Dataset Details
-
 File: airline_passenger_satisfaction.csv
 
-Rows: ~130,000
+Size: ~130,000 rows
 
-Columns: Passenger demographics, travel details, service ratings, delays, and satisfaction label.
+Columns: Passenger demographics, travel details, service ratings, delays, and satisfaction label
 
-Example Columns:
+Example Features:
 
-Gender – Male/Female
+Demographics: Gender, Age, Customer Type
 
-Age – Passenger age
+Travel Details: Type of Travel, Class, Flight Distance
 
-Customer Type – Loyal / Disloyal
+Service Ratings: In-flight Wifi, Seat Comfort, Cleanliness, etc.
 
-Type of Travel – Business / Personal
+Operational Data: Departure Delay, Arrival Delay
 
-Class – Business, Economy, Economy Plus
-
-Flight Distance – Distance of flight
-
-Departure Delay, Arrival Delay – Delay in minutes
-
-In-flight Wifi Service, Seat Comfort, Cleanliness, etc.
-
-Satisfaction – Target variable (Satisfied / Neutral or Dissatisfied)
+Target Variable: Satisfaction (Satisfied / Neutral or Dissatisfied)
 
 🛠 Data Cleaning
+Handled missing values:
 
-Handled missing values
+Filled missing Arrival Delay with 0 and converted to integer.
 
-Filled missing Arrival Delay with 0.
+Fixed data types:
 
-Converted it to integer type.
+Converted categorical features (Gender, Class, Satisfaction) into category type.
 
-Fixed data types
-
-Converted categorical columns (e.g., Gender, Class, Satisfaction) to category.
-
-Removed duplicates
-
-Dropped duplicate rows for data consistency.
+Removed duplicates for consistency.
 
 📊 Exploratory Data Analysis (EDA)
 🔹 Univariate Analysis
+Satisfaction distribution: Majority are Neutral or Dissatisfied.
 
-Satisfaction Distribution:
-Most passengers are Neutral or Dissatisfied.
-
-Age Distribution:
-Majority of passengers are between 20–50 years old.
+Age distribution: Most passengers are between 20–50 years old.
 
 🔹 Bivariate Analysis
+Gender vs Satisfaction: No significant difference.
 
-Gender vs Satisfaction: No major difference between male and female satisfaction.
+Class vs Satisfaction: Business class passengers are much more satisfied.
 
-Class vs Satisfaction: Business class passengers are significantly more satisfied.
+Wifi vs Satisfaction: Better wifi ratings strongly increase satisfaction.
 
-Wifi vs Satisfaction: Higher wifi ratings → more satisfaction.
-
-Arrival Delay vs Satisfaction: Longer delays reduce satisfaction.
+Delays vs Satisfaction: Longer delays → lower satisfaction.
 
 Customer Type vs Satisfaction: Loyal customers report more satisfaction.
 
 🔹 Grouped Insights
-print(df.groupby("Satisfaction")["Flight Distance"].mean())
+Satisfied passengers tend to fly longer distances.
 
+Business class → ~70% satisfied.
 
-Satisfied passengers fly longer distances.
-
-print(df.groupby("Class")["Satisfaction"].value_counts(normalize=True))
-
-
-Business class → ~70% satisfied
-
-Economy → only ~19% satisfied
+Economy class → only ~19% satisfied.
 
 🔹 Correlation Heatmap
+Strongest correlations: Seat Comfort, Wifi, Cleanliness with satisfaction.
 
-Strongest correlation: Service ratings (Seat Comfort, Wifi, Cleanliness) with satisfaction.
+Weak correlations: Age, Gender.
 
-Weak correlation: Age, Gender.
+📈 Key Insights
+Service-related factors (comfort, wifi, cleanliness) are the strongest drivers of satisfaction.
+
+Operational performance (delays) negatively impacts customer experience.
+
+Demographics (age, gender) have minimal effect on how satisfied passengers are.
+
+Business and loyal customers are significantly more satisfied on average.
+
+🛎️ Future Work
+Build predictive models to classify passenger satisfaction.
+
+Perform feature importance analysis using machine learning.
+
+Create interactive dashboards for airline decision-making.
+
+📌 Tech Stack
+Python (Pandas, NumPy, Matplotlib, Seaborn)
+
+Jupyter Notebook for analysis
+
+Scikit-learn (planned for predictive modeling)
+
